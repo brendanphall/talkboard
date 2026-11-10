@@ -1,0 +1,18 @@
+# Generated Xcode and Swift build products
+*.xcodeproj/
+DerivedData/
+build/
+.build/
+.swiftpm/
+xcuserdata/
+*.xcuserstate
+*.ipa
+*.dSYM.zip
+*.xcresult/
+.DS_Store
+
+# Local user content and signing material
+content/
+*.mobileprovision
+*.p12
+.env

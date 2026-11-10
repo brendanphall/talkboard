@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "board-home",
+  "name": "Home",
+  "grid": { "rows": 3, "columns": 4 },
+  "concepts": [
+    {
+      "id": "concept-cup",
+      "label": "Cup",
+      "spokenText": "cup please",
+      "imageID": "asset-cup-photo"
+    },
+    {
+      "id": "concept-stop",
+      "label": "Stop",
+      "spokenText": "stop"
+    },
+    {
+      "id": "concept-park",
+      "label": "Park",
+      "spokenText": "",
+      "recordingID": "asset-park-voice",
+      "destinationID": "board-park"
+    }
+  ],
+  "cells": [
+    { "position": { "row": 0, "column": 0 }, "conceptID": "concept-stop" },
+    { "position": { "row": 2, "column": 3 }, "conceptID": "concept-cup" },
+    { "position": { "row": 1, "column": 2 }, "conceptID": "concept-park" }
+  ],
+  "assets": [
+    {
+      "id": "asset-cup-photo",
+      "kind": "image",
+      "filename": "cup.jpg",
+      "provenance": {
+        "source": "placeholder photo",
+        "author": "talkboard tests",
+        "license": "CC0-1.0"
+      }
+    },
+    {
+      "id": "asset-park-voice",
+      "kind": "recording",
+      "filename": "park.m4a",
+      "provenance": {
+        "source": "placeholder recording",
+        "license": "CC0-1.0",
+        "modifications": "trimmed"
+      }
+    }
+  ]
+}

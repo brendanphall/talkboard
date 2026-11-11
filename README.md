@@ -1,8 +1,35 @@
 # Talkboard
 
-A small, offline-first picture communication app for iPad, built with SwiftUI.
-Tap a tile to speak. Caregivers can add photos, choose the displayed label and
-spoken words independently, and expand the board without moving existing tiles.
+Talkboard is a parent-built **augmentative and alternative communication (AAC)**
+app for iPad. I started building it for my child, bringing together AAC research,
+educational practices and practical ideas from everyday caregiving to make a
+communication tool we could try and improve together.
+
+The aim is to turn an iPad into a simple, personal communication device: tap a
+picture to speak, use familiar photos or symbols, and add vocabulary while keeping
+learned button positions stable. The app is built with SwiftUI and works with
+local pictures, installed voices and recordings.
+
+**Parents, teachers, caregivers, AAC users, speech-language pathologists and
+developers are welcome to contribute.** You do not need to write code. Experiences,
+research, corrections, accessibility feedback and ideas from home or classroom
+use can all help shape this project. [Join the conversation in an issue](https://github.com/brendanphall/talkboard/issues)
+or read [how to contribute](CONTRIBUTING.md).
+
+## What we are trying to put into practice
+
+We are working toward a board that supports asking, refusing, commenting and
+personal expression; keeps communication available without rewards or tests;
+and can be used by adults modeling communication alongside a child. Familiar
+pictures, separate labels and spoken phrases, and stable positions are deliberate
+design choices we want to keep testing and improving.
+
+Our starting references include [ASHA's AAC Practice Portal](https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/)
+and the [NJC Communication Bill of Rights](https://www.asha.org/njc/communication-bill-of-rights/).
+We distinguish research findings, professional guidance and our own engineering
+choices. This is an attempt to apply and learn from that work, not a claim that
+this app has established pedagogical or clinical effectiveness. Contributions
+that challenge an assumption or point us toward better evidence are welcome.
 
 **Status:** early development. This repository contains a generic demonstration
 board and source code for building the app yourself. There is no App Store
@@ -95,5 +122,7 @@ acceptance work, and a caregiver interface for importing or recording tile audio
 
 ## License
 
-The source is public for review. No open-source reuse license has been selected;
-copyright is reserved. See [LICENSE](LICENSE).
+Copyright 2026 Brendan Hall. Licensed under the [Apache License, Version 2.0](LICENSE).
+
+The code license does not grant rights to photos, symbols or recordings that
+users import. Those assets retain their own permissions and attribution.

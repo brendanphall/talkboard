@@ -1,0 +1,23 @@
+name: Report a problem
+description: Tell us what went wrong with the app or instructions.
+title: "[Problem] "
+body:
+  - type: markdown
+    attributes:
+      value: "Please use made-up examples. Do not attach personal board data, photos, recordings or identifying logs."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we reproduce it?
+      description: Optional. What were you doing just before it happened?
+  - type: input
+    id: environment
+    attributes:
+      label: Device and version, if known
+      description: Optional. iPad model, iPadOS version, app commit or Xcode version. No serial numbers or device identifiers.

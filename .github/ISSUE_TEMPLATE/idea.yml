@@ -1,0 +1,24 @@
+name: Share an idea or experience
+description: Help improve Talkboard. No coding experience needed.
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you for helping. This is public: please use made-up examples and omit personal names, photos and records."
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to improve?
+      description: Describe a situation, question or idea in your own words.
+    validations:
+      required: true
+  - type: textarea
+    id: benefit
+    attributes:
+      label: How would this help?
+      description: Optional. What would become easier for someone using the board or supporting them?
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Experience or sources
+      description: Optional. Is this based on personal experience, professional guidance or research? Links are welcome.

@@ -16,6 +16,28 @@ research, corrections, accessibility feedback and ideas from home or classroom
 use can all help shape this project. [Join the conversation in an issue](https://github.com/brendanphall/talkboard/issues)
 or read [how to contribute](CONTRIBUTING.md).
 
+![Talkboard running on an iPad simulator, with a three-row communication grid and a protected Caregiver button.](docs/images/demo-board.png)
+
+*Actual app screenshot using the public demonstration board. Gray pictures are
+placeholders: caregivers can choose their own photos. No personal board or family
+media is shown.*
+
+## Help shape it
+
+You can help even if you cannot install the app or write code. A GitHub account
+is needed to submit feedback:
+
+- [Suggest an improvement or share an experience](https://github.com/brendanphall/talkboard/issues/new?template=idea.yml).
+- [Report something that went wrong](https://github.com/brendanphall/talkboard/issues/new?template=bug.yml).
+- Share research or guidance that could improve a design choice through the idea form.
+
+Useful starting questions: What would make editing easier? What makes it hard to
+find a word? What should stay consistent as a board grows? Please use made-up
+examples and leave out personal photos, names and records.
+
+To try the app today, you need a Mac and Xcode; see [Build and run](#build-and-run).
+There is no one-tap public installation yet.
+
 ## What we are trying to put into practice
 
 We are working toward a board that supports asking, refusing, commenting and

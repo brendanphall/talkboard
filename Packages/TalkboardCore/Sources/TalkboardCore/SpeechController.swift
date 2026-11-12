@@ -44,7 +44,7 @@ public enum SpeechIssue: Error, Equatable, Sendable {
 }
 
 public enum SpeechEvent: Sendable {
-    case interruptionBegan, interruptionEnded, routeChanged, mediaServicesReset, background
+    case interruptionBegan, interruptionEnded, routeChanged, mediaServicesReset, background, foreground
 }
 
 /// Engineering safeguards AAC-006/007: a tap replaces prior output, using saved recording or exact text.
@@ -53,7 +53,7 @@ public enum SpeechEvent: Sendable {
 @Observable
 public final class SpeechController {
     public private(set) var issue: SpeechIssue?
-    private var interruptionActive = false
+    private var needsOutputReset = false
     private let engine: any SpeechEngine
     private let audio: any SpeechAudio
     private let preferences: any SpeechPreferences
@@ -71,9 +71,12 @@ public final class SpeechController {
         engine.stop()
         recordings?.stop()
         issue = nil
-        guard !interruptionActive else {
-            fail(.interrupted)
-            return
+        // Interruption-ended is not guaranteed. A deliberate new tap asks the
+        // audio session whether playback is available instead of trusting a latch.
+        if needsOutputReset {
+            engine.reset()
+            recordings?.reset()
+            needsOutputReset = false
         }
         if let recordingURL, let recordings {
             do { try audio.activate() }
@@ -107,6 +110,14 @@ public final class SpeechController {
         }
     }
 
+    /// A deliberate navigation action cancels output without simulating an interruption.
+    public func stop() {
+        engine.stop()
+        recordings?.stop()
+        try? audio.deactivate()
+        issue = nil
+    }
+
     /// A future authenticated caregiver workflow can change the preference without speaking.
     public func chooseVoice(_ identifier: String) throws {
         guard engine.installedVoices.contains(where: { $0.id == identifier }) else {
@@ -116,25 +127,19 @@ public final class SpeechController {
     }
 
     public func handle(_ event: SpeechEvent) {
-        switch event {
-        case .interruptionEnded:
-            interruptionActive = false
-            return
-        case .interruptionBegan:
-            interruptionActive = true
-        case .mediaServicesReset, .background:
-            interruptionActive = false
-        case .routeChanged:
-            break
-        }
+        if event == .interruptionEnded { return }
         engine.stop()
         recordings?.stop()
         try? audio.deactivate()
-        if event == .mediaServicesReset {
+        if event == .mediaServicesReset || event == .foreground {
             engine.reset()
             recordings?.reset()
+            needsOutputReset = false
+        } else {
+            needsOutputReset = true
         }
-        issue = event == .background ? nil : .interrupted
+        // Recovery never replays a stale selection; only a new tap can speak.
+        issue = (event == .background || event == .foreground) ? nil : .interrupted
     }
 
     private func selectedVoice() -> SpeechVoice? {

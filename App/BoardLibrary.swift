@@ -41,15 +41,22 @@ final class BoardLibrary {
     private(set) var canEdit = true
     private(set) var notice: String?
     private var mediaDirectory: URL?
+    private var demonstrationMedia: [AssetID: URL] = [:]
     private let persistence: any BoardPersistence
     private let caregiver: CaregiverController
 
-    init(persistence: any BoardPersistence, caregiver: CaregiverController, demonstration: Board = PreviewBoard.make()) {
+    init(persistence: any BoardPersistence, caregiver: CaregiverController, demonstration: Board = PreviewBoard.make(), demonstrationMedia: [AssetID: URL] = [:]) {
         self.persistence = persistence
         self.caregiver = caregiver
         board = demonstration
         do {
-            if let loaded = try persistence.load() { publish(loaded) }
+            if let loaded = try persistence.load() {
+                publish(loaded)
+            } else {
+                let ids = Set(demonstration.assets.map(\.id))
+                self.demonstrationMedia = demonstrationMedia.filter { ids.contains($0.key) }
+                images = self.demonstrationMedia.compactMapValues { UIImage(contentsOfFile: $0.path) }
+            }
         } catch {
             board = Board(id: BoardID(rawValue: "unavailable"), name: "Board unavailable", grid: GridSize(rows: 3, columns: 5))
             canEdit = false
@@ -57,15 +64,22 @@ final class BoardLibrary {
         }
     }
 
-    convenience init(caregiver: CaregiverController) {
+    convenience init(caregiver: CaregiverController, storeName: String = "Talkboard", demonstration: Board? = nil) {
+        let demo = demonstration ?? PublicDemoBoard.make()
+        let media = storeName == "Talkboard" ? AlphaSymbolLibrary.urls : [:]
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("--silent-speech-test") {
-            self.init(persistence: PreviewBoardPersistence(), caregiver: caregiver)
+            let publicDemo = ProcessInfo.processInfo.arguments.contains("--public-demo-test")
+            let fixture = storeName == "TalkboardPeople" ? PeopleBoard.testFixture : PreviewBoard.make()
+            self.init(persistence: PreviewBoardPersistence(), caregiver: caregiver,
+                      demonstration: publicDemo ? demo : fixture,
+                      demonstrationMedia: publicDemo ? media : [:])
             return
         }
         #endif
-        let support = URL.applicationSupportDirectory.appendingPathComponent("Talkboard", isDirectory: true)
-        self.init(persistence: DeviceBoardPersistence(root: support), caregiver: caregiver)
+        let support = URL.applicationSupportDirectory.appendingPathComponent(storeName, isDirectory: true)
+        self.init(persistence: DeviceBoardPersistence(root: support), caregiver: caregiver,
+                  demonstration: demo, demonstrationMedia: media)
     }
 
     func recordingURL(for conceptID: ConceptID) -> URL? {
@@ -81,7 +95,9 @@ final class BoardLibrary {
     func save(_ replacement: Board, importing: [AssetID: URL] = [:], session: UUID) throws {
         guard isAuthorized(session) else { throw BoardLibraryError.locked }
         guard canEdit else { throw BoardLibraryError.unavailable }
-        try persistence.save(replacement, importing: importing)
+        let ids = Set(replacement.assets.map(\.id))
+        let bundled = demonstrationMedia.filter { ids.contains($0.key) }
+        try persistence.save(replacement, importing: bundled.merging(importing) { _, selected in selected })
         do {
             guard let loaded = try persistence.load(), !loaded.recovered, loaded.board == replacement else { throw BoardLibraryError.refreshFailed }
             publish(loaded)
@@ -93,6 +109,7 @@ final class BoardLibrary {
     }
 
     private func publish(_ loaded: StoredBoard) {
+        demonstrationMedia = [:]
         board = loaded.board
         mediaDirectory = loaded.mediaDirectory
         notice = loaded.recovered ? "Using the previous saved board because the latest copy could not open." : nil

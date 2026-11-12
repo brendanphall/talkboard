@@ -1,0 +1,297 @@
+[
+  {
+    "id": "alpha-symbol-done",
+    "kind": "image",
+    "filename": "alpha-done.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/28429",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 28429,
+    "download_url": "https://static.arasaac.org/pictograms/28429/28429_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "c65ff26cf7844b99cd4b9965f26e930b87185fb31811dca20f7dd17c275903e5"
+  },
+  {
+    "id": "alpha-symbol-eat",
+    "kind": "image",
+    "filename": "alpha-eat.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2349",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2349,
+    "download_url": "https://static.arasaac.org/pictograms/2349/2349_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "be2af6053dfb1c07e9d44b1016dd153324e9c8f812c2eecf39e85dfed3717c79"
+  },
+  {
+    "id": "alpha-symbol-potty",
+    "kind": "image",
+    "filename": "alpha-potty.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2430",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2430,
+    "download_url": "https://static.arasaac.org/pictograms/2430/2430_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "90c9c2c874fc3ceb6b71db84f01fd31a88d1d3b5c221b57e2af70bfcc356bf48"
+  },
+  {
+    "id": "alpha-symbol-outside",
+    "kind": "image",
+    "filename": "alpha-outside.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2806",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2806,
+    "download_url": "https://static.arasaac.org/pictograms/2806/2806_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "f4c542c23c971067d4053aeffc9bd18b3fdfcc1c8187e8fc90439ce0b1c80c3c"
+  },
+  {
+    "id": "alpha-symbol-bye",
+    "kind": "image",
+    "filename": "alpha-bye.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/5896",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 5896,
+    "download_url": "https://static.arasaac.org/pictograms/5896/5896_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "0f6af51266ac3322ea12ea89b3ce1d4e6d346f1ebe7e06d2063e684850aedb00"
+  },
+  {
+    "id": "alpha-symbol-school",
+    "kind": "image",
+    "filename": "alpha-school.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/3082",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 3082,
+    "download_url": "https://static.arasaac.org/pictograms/3082/3082_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "293cb2edf53b7269c5e7b40aa99af2486f00d2865d27117cc88912a6c7e9a088"
+  },
+  {
+    "id": "alpha-symbol-book",
+    "kind": "image",
+    "filename": "alpha-book.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2450",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2450,
+    "download_url": "https://static.arasaac.org/pictograms/2450/2450_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "b1246a7f32a22306e5a2418f2fdbfa9322fe3d20a31adcdf818c8dda6096c790"
+  },
+  {
+    "id": "alpha-symbol-train",
+    "kind": "image",
+    "filename": "alpha-train.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2603",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2603,
+    "download_url": "https://static.arasaac.org/pictograms/2603/2603_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "6cbd1010fd6ca9cbba973065ea28575ed7c0cd8c8dd68201f7564b1823bd9502"
+  },
+  {
+    "id": "alpha-symbol-ball",
+    "kind": "image",
+    "filename": "alpha-ball.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/3241",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 3241,
+    "download_url": "https://static.arasaac.org/pictograms/3241/3241_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "c1c71140027cbcdc3d803ce4d8ee1b21a06319bc7bc5bb0c77c16f09611e4d3a"
+  },
+  {
+    "id": "alpha-symbol-cat",
+    "kind": "image",
+    "filename": "alpha-cat.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2406",
+      "author": "Sergio Palao; ARASAAC; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2406,
+    "download_url": "https://static.arasaac.org/pictograms/2406/2406_500.png",
+    "retrieved": "2026-11-11",
+    "sha256": "d1b25205ac7448e2d9b37058907bbce04290e4a0ebc8c43342869c9c28ab3bd7"
+  },
+  {
+    "id": "alpha-symbol-dog",
+    "kind": "image",
+    "filename": "alpha-dog.png",
+    "provenance": {
+      "source": "https://raw.githubusercontent.com/mulberrysymbols/mulberry-symbols/fa94a93ca1b5357c0b6e0d9f8a81c426a1dfefdf/EN/dog.svg",
+      "author": "Mulberry Symbols; copyright Steve Lee",
+      "license": "CC-BY-SA-4.0",
+      "modifications": "None. Original SVG bytes; filename normalized. Rasterized to a 500px PNG; artwork unchanged."
+    },
+    "sha256": "c01b92d51f37333e89dbb12ec7b98a3070cabc57c703ac9ae080673c14c01e12",
+    "original_sha256": "3d0b2539ddb3905aab75a573cf7442e06d8e9d3d28b262bbcbc11d335c396121"
+  },
+  {
+    "id": "alpha-symbol-food",
+    "kind": "image",
+    "filename": "alpha-food.png",
+    "provenance": {
+      "source": "https://raw.githubusercontent.com/mulberrysymbols/mulberry-symbols/fa94a93ca1b5357c0b6e0d9f8a81c426a1dfefdf/EN/food.svg",
+      "author": "Mulberry Symbols; copyright Steve Lee",
+      "license": "CC-BY-SA-4.0",
+      "modifications": "None. Original SVG bytes; filename normalized. Rasterized to a 500px PNG; artwork unchanged."
+    },
+    "sha256": "fab57bc7c3f47d86a9aef29fbffcb5ec6dff266e34d409afa7da2b678264f849",
+    "original_sha256": "21988a830ba98886db6eddd3af65b7124861bfbfe9edf18325fb42e4a825616e"
+  },
+  {
+    "id": "alpha-symbol-hungry",
+    "kind": "image",
+    "filename": "alpha-hungry.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/4962",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "bc784f539f29d78900eed466f43aed8b6e91a636e97fae4771185d1d3cde8e57",
+    "original_sha256": "bc784f539f29d78900eed466f43aed8b6e91a636e97fae4771185d1d3cde8e57"
+  },
+  {
+    "id": "alpha-symbol-night-night",
+    "kind": "image",
+    "filename": "alpha-night-night.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2304",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "351cf3875f6108bbf76ae7ef8d5589a4663aa2f2d3db1bb2adcda6b3c86e9563",
+    "original_sha256": "351cf3875f6108bbf76ae7ef8d5589a4663aa2f2d3db1bb2adcda6b3c86e9563"
+  },
+  {
+    "id": "alpha-symbol-bath",
+    "kind": "image",
+    "filename": "alpha-bath.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2272",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "4cdbf8f1596f14fc735f7456e9e2ec7a2cccd04a9dd9d1389ffa6d0899731d7c",
+    "original_sha256": "4cdbf8f1596f14fc735f7456e9e2ec7a2cccd04a9dd9d1389ffa6d0899731d7c"
+  },
+  {
+    "id": "alpha-symbol-stop",
+    "kind": "image",
+    "filename": "alpha-stop.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/8289",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "e7ff91369a2a6123061b3b4e309a2ab63f871d615b22da317e4d2c68cdc0023d",
+    "original_sha256": "e7ff91369a2a6123061b3b4e309a2ab63f871d615b22da317e4d2c68cdc0023d"
+  },
+  {
+    "id": "alpha-symbol-no",
+    "kind": "image",
+    "filename": "alpha-no.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/5526",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "a0fb73bbae892b0ee64710a19c21cbf13d163e2db9dd3fedc43702ffc28c0499",
+    "original_sha256": "a0fb73bbae892b0ee64710a19c21cbf13d163e2db9dd3fedc43702ffc28c0499"
+  },
+  {
+    "id": "alpha-symbol-help",
+    "kind": "image",
+    "filename": "alpha-help.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/4570",
+      "author": "Sergio Palao; owner Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Official 500px color PNG bytes retained."
+    },
+    "sha256": "b8dfc597be49bf0486e82209b2f2e564ac89afdf848aa8d68d435a65f71b3fa6",
+    "original_sha256": "b8dfc597be49bf0486e82209b2f2e564ac89afdf848aa8d68d435a65f71b3fa6"
+  },
+  {
+    "id": "alpha-symbol-water",
+    "kind": "image",
+    "filename": "alpha-water.jpg",
+    "provenance": {
+      "source": "https://www.pexels.com/photo/a-clear-drinking-glass-with-water-7904429/",
+      "author": "Anna Tarazevich",
+      "license": "Pexels License",
+      "modifications": "Pexels CDN resized to 800 pixels wide and compressed; original framing retained."
+    },
+    "sha256": "95672786d56d226053b62487498bd17bbaa65aad00e29e62b5c401dc69dde8e6",
+    "original_sha256": "95672786d56d226053b62487498bd17bbaa65aad00e29e62b5c401dc69dde8e6"
+  },
+  {
+    "id": "alpha-symbol-go",
+    "kind": "image",
+    "filename": "alpha-go.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/2432",
+      "author": "Sergio Palao; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 2432,
+    "download_url": "https://static.arasaac.org/pictograms/2432/2432_500.png",
+    "sha256": "3c48fa50ddf236109fdb378a26cbb08abdffb76be7d23b39cabe34a97f2878c1"
+  },
+  {
+    "id": "alpha-symbol-yes",
+    "kind": "image",
+    "filename": "alpha-yes.png",
+    "provenance": {
+      "source": "https://arasaac.org/pictograms/en/5584",
+      "author": "Sergio Palao; Government of Aragon, Spain",
+      "license": "CC-BY-NC-SA-4.0",
+      "modifications": "None. Original 500px color PNG; filename normalized."
+    },
+    "pictogram_id": 5584,
+    "download_url": "https://static.arasaac.org/pictograms/5584/5584_500.png",
+    "sha256": "d4282268084c516cb0eb9932c0e0b9e1149f3d891f500ae4f898b2ed306bd65d"
+  }
+]

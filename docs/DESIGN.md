@@ -42,9 +42,16 @@ playback starts does not currently trigger that fallback.
 ## Limitations
 
 - Export/restore, printable output and general recording import/capture UI are pending.
-- The app displays one fixed 3 by 5 board. Navigation fields exist in the schema;
-  multi-page navigation is not implemented.
+- Home and People use independent saved stores; two vocabulary pages are transient.
+  Back/Next are bounded, Home returns directly, and page indicators show position.
+- Letter and number activities do not change saved communication boards.
+  Navigation and mode changes cancel current output. Letter pronunciation needs
+  audible validation; there is no song or guided counting playback yet.
+- A new demo's first save copies bundled artwork into its store. Loaded saved
+  boards never receive replacement demo media automatically.
 - Landscape is the intended orientation. Some devices may letterbox the interface.
 - Simulator tests cannot establish physical speaker behavior, actual biometric or
   passcode flows, Guided Access confinement, or touch behavior in a user's setup.
 - The generic demonstration is a software example, not a prescribed vocabulary.
+
+See the [public demo flow](../puml/PublicDemo.png).

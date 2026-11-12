@@ -16,3 +16,5 @@ content/
 *.mobileprovision
 *.p12
 .env
+
+_Sessions/

@@ -1,6 +1,6 @@
 import TalkboardCore
 
-/// Invented demonstration content only. Household content is installed on device later.
+/// Invented demonstration content only. Used by isolated software tests.
 enum PreviewBoard {
     static func make() -> Board {
         let entries: [(String, String, Int, Int)] = [

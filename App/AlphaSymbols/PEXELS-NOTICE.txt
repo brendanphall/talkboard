@@ -1,0 +1,7 @@
+Pexels License
+Source: https://www.pexels.com/license/
+Checked: 2026-11-10
+
+Pexels permits free use and modification of its photos, with attribution appreciated but not required. Restrictions include selling unaltered copies, implying endorsement, offensive portrayal of identifiable people, redistribution on stock-photo or wallpaper services, and use in trademarks. Consult the source license and terms for the full terms.
+
+The bundled photograph is a generic example embedded in this communication-board demo, not household content. Credits and exact source pages are recorded per asset in manifest.json.

@@ -5,6 +5,29 @@ import Testing
 @Suite("Recorded tile audio")
 @MainActor
 struct RecordingSpeechTests {
+    @Test("leaving an activity stops both outputs without replay and allows another tap")
+    func deliberateStop() {
+        let f = RecordingFixture()
+        f.controller.speak(f.concept, recordingURL: f.url)
+        f.trace.events = []
+        f.controller.stop()
+        #expect(f.trace.events == ["speech.stop", "recording.stop", "deactivate"])
+        #expect(f.controller.issue == nil)
+        #expect(f.recordings.urls == [f.url])
+        f.controller.speak(f.concept)
+        #expect(f.engine.texts == [" exact words "])
+    }
+
+    @Test("a recorded tile recovers without an interruption-ended notification")
+    func missingInterruptionEnd() {
+        let f = RecordingFixture()
+        f.controller.handle(.interruptionBegan)
+        #expect(f.recordings.urls.isEmpty)
+        f.controller.speak(f.concept, recordingURL: f.url)
+        #expect(f.recordings.urls == [f.url])
+        #expect(f.controller.issue == nil)
+    }
+
     @Test("a recording plays before voice or text validation without changing the voice preference")
     func recordingWithoutVoiceOrText() {
         let f = RecordingFixture()
@@ -87,15 +110,17 @@ struct RecordingSpeechTests {
         #expect(f.controller.issue == .audioUnavailable)
     }
 
-    @Test("an active interruption suppresses recording until it ends without automatic replay")
+    @Test("an unavailable audio session suppresses recording without automatic replay")
     func interruption() {
         let f = RecordingFixture()
         f.controller.handle(.interruptionBegan)
+        f.audio.fails = true
         f.trace.events = []
         f.controller.speak(f.concept, recordingURL: f.url)
         #expect(f.recordings.urls.isEmpty)
-        #expect(f.trace.events == ["speech.stop", "recording.stop", "deactivate"])
-        #expect(f.controller.issue == .interrupted)
+        #expect(f.trace.events == ["speech.stop", "recording.stop", "speech.reset", "recording.reset", "activate", "deactivate"])
+        #expect(f.controller.issue == .audioUnavailable)
+        f.audio.fails = false
         f.controller.handle(.interruptionEnded)
         #expect(f.recordings.urls.isEmpty)
         f.controller.speak(f.concept, recordingURL: f.url)
@@ -114,12 +139,12 @@ struct RecordingSpeechTests {
         #expect(f.controller.issue == (event == .background ? nil : .interrupted))
     }
 
-    @Test("a media reset stops and resets both outputs, requiring another intentional tap")
-    func mediaReset() {
+    @Test("media reset and foreground replace outputs without replay", arguments: [SpeechEvent.mediaServicesReset, .foreground])
+    func mediaReset(event: SpeechEvent) {
         let f = RecordingFixture()
         f.controller.speak(f.concept, recordingURL: f.url)
         f.trace.events = []
-        f.controller.handle(.mediaServicesReset)
+        f.controller.handle(event)
         #expect(f.trace.events == ["speech.stop", "recording.stop", "deactivate", "speech.reset", "recording.reset"])
         #expect(f.recordings.urls == [f.url])
         f.controller.speak(f.concept, recordingURL: f.url)

@@ -153,6 +153,12 @@ struct AppleSpeechTests {
         #expect(driver.texts == ["please pass the cup"])
         service.background()
         #expect(driver.events.suffix(2) == ["stop", "deactivate"])
+        driver.events = []
+        service.foreground()
+        #expect(driver.events == ["stop", "deactivate", "reset"])
+        #expect(driver.texts == ["please pass the cup"])
+        service.speak(conceptID: concept.id, in: board)
+        #expect(driver.texts == ["please pass the cup", "please pass the cup"])
     }
 
     @Test("speech notices explain retry without hiding or intercepting the board")

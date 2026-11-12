@@ -16,11 +16,15 @@ research, corrections, accessibility feedback and ideas from home or classroom
 use can all help shape this project. [Join the conversation in an issue](https://github.com/brendanphall/talkboard/issues)
 or read [how to contribute](CONTRIBUTING.md).
 
-![Talkboard running on an iPad simulator, with a three-row communication grid and a protected Caregiver button.](docs/images/demo-board.png)
+![Talkboard public demo with illustrated vocabulary, page arrows and an ABC / 123 entry.](docs/images/demo-board.png)
 
-*Actual app screenshot using the public demonstration board. Gray pictures are
-placeholders: caregivers can choose their own photos. No personal board or family
-media is shown.*
+*Actual app screenshot with generic licensed artwork and a stock water photo.
+The People page starts empty. No personal boards, photos or recordings are bundled.*
+
+**Code and artwork have different licenses.** App source is Apache 2.0; the
+included ARASAAC images are CC BY-NC-SA 4.0, Mulberry images are CC BY-SA 4.0,
+and the water photo uses the Pexels License. The ready-made demo includes
+noncommercial artwork. See [artwork credits and terms](THIRD_PARTY_NOTICES.md).
 
 ## Help shape it
 
@@ -60,7 +64,12 @@ unfinished. Software tests do not establish communication or clinical outcomes.
 
 ## What works
 
+- Four communication pages with large green Back/Next arrows, Home and page indicators.
+  Shared Yes, Go, Stop, No and Help retain their home coordinates on the vocabulary pages.
 - A fixed landscape grid with spare cells, large tap targets and VoiceOver labels.
+- A separate People page that starts empty and can be edited by a caregiver.
+- A bottom-left ABC / 123 activity with tappable letters and numbers 1-20,
+  quantity dots, and direct return to communication.
 - Immediate speech using installed Apple voices. A new tap interrupts the previous
   output rather than joining a queue.
 - Caregiver editing protected by device-owner authentication. Editing locks again
@@ -72,9 +81,21 @@ unfinished. Software tests do not establish communication or clinical outcomes.
 - Optional local recording playback with saved-text fallback if the file cannot
   be opened or playback cannot start. A recording import/capture UI is not yet built.
 
-The demonstration uses invented labels and placeholder images. Add your own
-pictures through **Caregiver → Edit board**. No symbol library, stock photos or
-recorded clips are bundled. Imported media keeps its own source/license metadata.
+The demonstration uses generic vocabulary and 21 credited images. Add your own
+pictures through **Caregiver → Edit home board**, or **Edit People** on page four.
+The first edit saves bundled demo images into the local store; existing saved
+boards keep their own images and positions. Imported media retains its provenance.
+
+## Known limits in this beta
+
+- Alphabet pronunciation is unfinished: A and E have reported pronunciation
+  issues, and G's spelling adjustment still needs listening confirmation.
+  Audition every letter with your installed voice before relying on this activity.
+- Alphabet song and guided counting playback are not implemented.
+- The two extra vocabulary pages are temporary views, not independently saved
+  editable boards. General multi-board export/restore is still pending.
+- An intermittent idle-audio report remains under physical-device investigation;
+  interruption recovery and foreground refresh have software regression coverage.
 
 ## Build and run
 
@@ -89,7 +110,9 @@ xcodegen generate
 open Talkboard.xcodeproj
 ```
 
-Choose an iPad simulator and run the `Talkboard` scheme. To use a physical iPad,
+Choose an iPad simulator and run the `Talkboard` scheme. A fresh public install
+opens the illustrated demo. An existing public install retains its saved board.
+The app is named **Talkboard Demo** to distinguish it from other installations. To use a physical iPad,
 select your own development team under Signing & Capabilities, choose a unique
 bundle identifier, and enable Developer Mode on the device. The repository does
 not contain signing credentials or profiles. The default identifier is
@@ -146,5 +169,6 @@ acceptance work, and a caregiver interface for importing or recording tile audio
 
 Copyright 2026 Brendan Hall. Licensed under the [Apache License, Version 2.0](LICENSE).
 
-The code license does not grant rights to photos, symbols or recordings that
-users import. Those assets retain their own permissions and attribution.
+The code license does not relicense bundled or imported artwork. Read
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) before redistributing the demo,
+particularly for commercial use. In-app **About** provides artwork credits.

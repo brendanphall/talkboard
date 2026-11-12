@@ -1,50 +1,25 @@
 import SwiftUI
 import TalkboardCore
 
-private struct EditorPresentation: Identifiable { let id: UUID }
+private struct EditorPresentation: Identifiable { let id: UUID; let library: BoardLibrary }
 
 struct BoardWorkspace: View {
     let library: BoardLibrary
+    let people: BoardLibrary
     let caregiver: CaregiverController
     let speech: AppleSpeechService
     @State private var editor: EditorPresentation?
 
     var body: some View {
-        BoardView(board: displayBoard, images: library.images) { id in
-            speech.speak(conceptID: id, in: library.board, recordingURL: library.recordingURL(for: id))
-        }
-        .overlay(alignment: .top) {
-            CaregiverControls(controller: caregiver) {
-                guard library.canEdit, let session = caregiver.sessionID else { return }
-                editor = EditorPresentation(id: session)
-            }
-        }
-        .overlay(alignment: .topLeading) {
-            VStack(alignment: .leading, spacing: 2) {
-                SpeechNotice(issue: speech.controller.issue)
-                if let notice = library.notice {
-                    Text(notice).font(.caption).padding(.horizontal, 20)
-                        .accessibilityIdentifier("board-notice")
-                }
-            }
-            .padding(.top, 28)
-            .allowsHitTesting(false)
+        AlphaPagesView(library: library, people: people, speech: speech, caregiver: caregiver) { selectedLibrary in
+            guard selectedLibrary.canEdit, let session = caregiver.sessionID else { return }
+            editor = EditorPresentation(id: session, library: selectedLibrary)
         }
         .sheet(item: $editor) { presentation in
-            BoardEditorView(library: library, session: presentation.id, speak: { speech.controller.speak($0) })
+            BoardEditorView(library: presentation.library, session: presentation.id, speak: { speech.controller.speak($0) })
         }
         .onChange(of: caregiver.sessionID) { _, session in
             if session != editor?.id { editor = nil }
         }
-    }
-
-    private var displayBoard: Board {
-        var board = library.board
-        #if DEBUG
-        if ProcessInfo.processInfo.arguments.contains("--changed-cup"), !board.concepts.isEmpty {
-            board.concepts[0].label = "A different cup"
-        }
-        #endif
-        return board
     }
 }

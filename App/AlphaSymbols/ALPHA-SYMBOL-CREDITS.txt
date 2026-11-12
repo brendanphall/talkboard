@@ -1,0 +1,20 @@
+Talkboard demo artwork
+
+Code: Apache License 2.0. Artwork has separate terms.
+
+ARASAAC: Sergio Palao, Government of Aragon. CC BY-NC-SA 4.0.
+https://arasaac.org/terms-of-use
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+Noncommercial use only under these terms; retain attribution and share-alike.
+
+Mulberry Symbols: Steve Lee. CC BY-SA 4.0.
+https://github.com/mulberrysymbols/mulberry-symbols
+https://creativecommons.org/licenses/by-sa/4.0/
+Dog and food rasterized from original SVGs.
+
+Water photograph: Anna Tarazevich, Pexels License.
+https://www.pexels.com/photo/a-clear-drinking-glass-with-water-7904429/
+https://www.pexels.com/license/
+
+Exact sources, changes and hashes are in alpha-symbols.json.
+Artwork selection is a demo, not evidence of recognition or language benefit.

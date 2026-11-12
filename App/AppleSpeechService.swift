@@ -49,6 +49,7 @@ final class AppleSpeechService {
     }
 
     func background() { controller.handle(.background) }
+    func foreground() { controller.handle(.foreground) }
 
     nonisolated static func event(for notification: Notification) -> SpeechEvent? {
         switch notification.name {

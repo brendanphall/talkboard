@@ -1,0 +1,36 @@
+@startuml PublicDemo
+title Talkboard public demo
+skinparam defaultFontName Helvetica
+skinparam shadowing false
+start
+:Open separate public app container;
+if (Saved board exists?) then (yes)
+  :Load saved board and its own media;
+else (no)
+  :Show generic home vocabulary
+with licensed bundled images;
+endif
+:Show bounded page arrows, Home,
+page indicators and ABC / 123 entry;
+note right
+People starts empty.
+A new tap replaces old audio.
+No personal content is bundled.
+end note
+if (Caregiver edits?) then (yes)
+  :Authenticate and edit chosen saved board;
+  if (First save of illustrated demo?) then (yes)
+    :Copy referenced bundled images
+into the local board store;
+  endif
+  :Publish and verify saved generation;
+  :Use saved media on later edits;
+endif
+:Keep communication available;
+stop
+legend
+Code: Apache 2.0.
+Artwork: separate CC BY-NC-SA, CC BY-SA and Pexels terms.
+Letter pronunciation and physical-device acceptance remain open.
+endlegend
+@enduml

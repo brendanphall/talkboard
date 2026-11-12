@@ -5,6 +5,16 @@ import Testing
 @Suite("Immediate speech")
 @MainActor
 struct SpeechControllerTests {
+    @Test("a fresh tap recovers when interruption ended never arrives")
+    func missingInterruptionEnd() {
+        let f = SpeechFixture()
+        f.controller.handle(.interruptionBegan)
+        #expect(f.engine.texts.isEmpty)
+        f.controller.speak(Concept(label: "Help", spokenText: "help"))
+        #expect(f.engine.texts == ["help"])
+        #expect(f.controller.issue == nil)
+    }
+
     @Test("a selection speaks its exact saved text after stopping and activating audio")
     func exactText() {
         let f = SpeechFixture()
@@ -159,15 +169,17 @@ struct SpeechControllerTests {
         #expect(f.controller.issue == nil)
     }
 
-    @Test("taps during an active interruption never queue speech and ending never replays them")
+    @Test("unavailable audio during interruption rejects a tap without queuing it")
     func activeInterruption() {
         let f = SpeechFixture()
         f.controller.handle(.interruptionBegan)
+        f.audio.failActivation = true
         f.trace.events = []
         f.controller.speak(Concept(label: "Cup", spokenText: "cup"))
         #expect(f.engine.texts.isEmpty)
-        #expect(f.trace.events == ["stop", "deactivate"])
-        #expect(f.controller.issue == .interrupted)
+        #expect(f.trace.events == ["stop", "reset", "activate", "stop", "deactivate"])
+        #expect(f.controller.issue == .audioUnavailable)
+        f.audio.failActivation = false
         f.controller.handle(.interruptionEnded)
         #expect(f.engine.texts.isEmpty)
         f.controller.speak(Concept(label: "Park", spokenText: "park"))
@@ -175,7 +187,7 @@ struct SpeechControllerTests {
         #expect(f.controller.issue == nil)
     }
 
-    @Test("background and media reset clear a stale interruption without replay", arguments: [SpeechEvent.background, .mediaServicesReset])
+    @Test("background and media reset clear a stale interruption without replay", arguments: [SpeechEvent.background, .mediaServicesReset, .foreground])
     func staleInterruptionRecovery(event: SpeechEvent) {
         let f = SpeechFixture()
         f.controller.handle(.interruptionBegan)
